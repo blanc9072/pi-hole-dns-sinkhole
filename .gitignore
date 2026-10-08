@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+*.key
+*.db
+*.db-*
+server/wg0.conf
+data/
+
 # User-specific files
 *.rsuser
 *.suo
