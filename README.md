@@ -1,10 +1,8 @@
-# Pi-hole Privacy Analyzer
+# Pi-hole Privacy Analyzer layer on top of DNS Sinkhole
 
-> **Status: in progress.** Infrastructure complete; data collection and analysis next.
+**Status: in progress.** 
 
-How many companies does my laptop contact in one day of normal internet use, and how many of them are trackers or registered data brokers?
-
-This project runs a **Pi-hole DNS filter on a cloud server, reachable only through a WireGuard VPN**, logs one day of my Mac's DNS lookups, and maps each domain to the company behind it.
+This project runs a Pi-hole DNS filter on a cloud server, reachable only through a WireGuard VPN
 
 ## Architecture
 
@@ -32,14 +30,7 @@ Cloud server (Ubuntu 24.04, ufw: deny by default)
 
 ## Results
 
-_TBD after the measurement day._
-
-## What DNS data can and can't show
-
-- It shows **which domains my Mac looked up**, not what data was sent; traffic itself is encrypted.
-- Counts are **DNS lookups**, not individual requests (devices cache answers).
-- Data brokers mostly obtain data indirectly, so this measures direct contact with trackers and flags companies that are registered brokers.
-- Covers one Mac only.
+*TBD*
 
 ## Repo layout
 
@@ -52,11 +43,7 @@ _TBD after the measurement day._
 | `tests/check_exposure.sh` | Verifies Pi-hole is reachable via VPN only |
 | `analyzer/` | Analysis code (in progress) |
 
-## Privacy
+## Resources
 
-The raw Pi-hole database is effectively browsing history and is **not** in this repo. Only aggregated results are published.
-
-## Credits
-
-- [Pi-hole](https://pi-hole.net/) and its documentation
+- [Pi-hole](https://pi-hole.net/)
 - [WireGuard](https://www.wireguard.com/)
