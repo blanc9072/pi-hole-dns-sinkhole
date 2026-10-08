@@ -1,0 +1,16 @@
+# WireGuard server config  ->  copy to /etc/wireguard/wg0.conf on the server
+# Replace every <PLACEHOLDER>. Never commit the real file.
+
+[Interface]
+# The server's address inside the VPN (IPv4 and IPv6)
+Address = 10.100.0.1/24, fd08:4711::1/64
+# UDP port WireGuard listens on (must be allowed in the firewall)
+ListenPort = 47111
+# Generated on the server with: wg genkey | tee server.key | wg pubkey > server.pub
+PrivateKey = <SERVER_PRIVATE_KEY>
+
+[Peer]
+# Mac laptop
+PublicKey = <MAC_PUBLIC_KEY>
+# The one VPN address this peer is allowed to use
+AllowedIPs = 10.100.0.2/32

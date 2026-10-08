@@ -1,0 +1,20 @@
+# WireGuard client config (Mac)  ->  paste into the WireGuard app ("Add Empty Tunnel")
+# The app generates the PrivateKey for you. Never commit the real file.
+
+[Interface]
+PrivateKey = <MAC_PRIVATE_KEY>
+# The Mac's address inside the VPN
+Address = 10.100.0.2/32
+# Send all DNS lookups to Pi-hole while the tunnel is on.
+# Only enabled on measurement days; leave commented out otherwise.
+# DNS = 10.100.0.1
+
+[Peer]
+# The server's public key (shown by `wg show` on the server)
+PublicKey = <SERVER_PUBLIC_KEY>
+Endpoint = <SERVER_PUBLIC_IP>:47111
+# Split tunnel: only traffic for the server's VPN address goes through the tunnel.
+# Normal browsing still uses the regular internet connection.
+AllowedIPs = 10.100.0.1/32
+# Keeps the connection alive through home/school routers
+PersistentKeepalive = 25
